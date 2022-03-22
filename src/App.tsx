@@ -1,25 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
+import { generate } from './helper/generatePassword';
+import { useState } from 'react';
+
 import './App.css';
 
 function App() {
+  const [password, setPassword] = useState('');
+
+  const putPassword = () => setPassword(generate());
+
+  const resetPassword = () => setPassword('');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <span>
+        {password === '' ? (
+          <p>Click the Button to generate a password</p>
+        ) : (
+          <p>Password: {password}</p>
+        )}
+        <button onClick={putPassword}>Generate</button>
+        <button onClick={resetPassword}>Reset</button>
+      </span>
+    </>
   );
 }
 
