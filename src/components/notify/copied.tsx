@@ -1,7 +1,8 @@
 import { Props } from './reset';
 
 function Copied(props: Props) {
-  return <>{props.show ? <p>Copied!</p> : null}</>;
+  if (props.show) return <p className="notification">Copied!</p>;
+  else return null;
 }
 
 export default Copied;

@@ -3,7 +3,8 @@ export interface Props {
 }
 
 function Notify(props: Props) {
-  return <>{props.show ? <p>Reset</p> : null}</>;
+  if (props.show) return <p className="notification">Reset!</p>;
+  else return null; // doing this so Reset! isn't always displayed on the page
 }
 
 export default Notify;
